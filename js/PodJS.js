@@ -114,27 +114,136 @@
 //     The input of the function will always be a string or an array with numbers.
 
 
-    function difCiph(input) {
-    if(typeof input === "string"){
-        var secretArr = [];
-        secretArr.push(input.charCodeAt(0));
-        for(var i = 1; i < input.length; i++){
-            var subtract = input.charCodeAt(i) - input.charCodeAt(i - 1);
-            secretArr.push(subtract);
+    // function difCiph(input) {
+    // if(typeof input === "string"){
+    //     var secretArr = [];
+    //     secretArr.push(input.charCodeAt(0));
+    //     for(var i = 1; i < input.length; i++){
+    //         var subtract = input.charCodeAt(i) - input.charCodeAt(i - 1);
+    //         secretArr.push(subtract);
+    //     }
+    //     return secretArr;
+    // } else {
+    //     var add = input[0]
+    //     var secretStr = (String.fromCharCode(add));
+    //     for(var i = 1; i < input.length; i++){
+    //         add = input[i] + add;
+    //         secretStr = secretStr + (String.fromCharCode(add));
+    //     }
+    //     return secretStr;
+    // }
+    // }
+    //
+    // console.log(difCiph("Sunshine"));
+    // console.log(difCiph([72, 33, -73, 84, -12, -3, 13, -13, -68]));
+    // console.log(difCiph("Hello"));
+
+
+    // ~~~~~~~4 - Hard Edabit ~~~~~~
+
+
+    // Broken Keyboard
+    // Given what is supposed to be typed and what is actually typed, write a function that returns the broken key(s). The function looks like:
+    //
+    //     findBrokenKeys(correct phrase, what you actually typed)
+    // Examples
+    // findBrokenKeys("happy birthday", "hawwy birthday") ➞ ["p"]
+    //
+    // findBrokenKeys("starry night", "starrq light") ➞ ["y", "n"]
+    //
+    // findBrokenKeys("beethoven", "affthoif5") ➞ ["b", "e", "v", "n"]
+    // Notes
+    // Broken keys should be ordered by when they first appear in the sentence.
+    //     Only one broken key per letter should be listed.
+    //     Letters will all be in lower case.
+
+    var test = [0];
+    console.log(test.length);
+
+    function findBrokenKeys(str1, str2) {
+        var right = str1.split("");
+        var broken = str2.split("");
+        var keys = [];
+        for (var i = 0; i < str1.length; i++) {
+            if (right[i] !== broken[i]) {
+                for (var v = 1; v <= keys.length; v--) {
+                     if (right[i] !== keys[v-1]) {
+                        console.log(keys[v]);
+                        console.log(right[i]);
+                        keys.push(right[i]);
+                    }
+                }
+            }
         }
-        return secretArr;
-    } else {
-        var secretStr = "";
-        for(var i = 0; i < input.length; i++){
-            secretStr.concat(input.fromCharCode(i));
-        }
-        return secretStr;
-    }
+        return keys;
     }
 
-    console.log(difCiph("Sunshine"));
-    // console.log(difCiph([72, 33, -73, 84, -12, -3, 13, -13, -68]));
-    console.log(difCiph("Hello"));
+    console.log(findBrokenKeys("happy birthday", "hawwy birthday"));
+
+    console.log(findBrokenKeys("starry night", "starrq light"));
+
+    console.log(findBrokenKeys("beethoven", "affthoif5"));
+
+
+    // ~~~~~~5 - Hard Edabit~~~~
+
+//     Reverse the Odd Length Words
+//     Given a string, reverse all the words which have odd length. The even length words are not changed.
+//
+//         Examples
+//     reverseOdd("Bananas") ➞ "sananaB"
+//
+//     reverseOdd("One two three four") ➞ "enO owt eerht four"
+//
+//     reverseOdd("Make sure uoy only esrever sdrow of ddo length")
+// ➞ "Make sure you only reverse words of odd length"
+//     Notes
+//     There is exactly one space between each word and no punctuation is used.
+
+
+    // function reverseOdd(str) {
+    //     if(str.length % 2 === 0){
+    //         return str;
+    //     } else {
+    //         str.split("").reverse().join("");
+    //     }
+    // }
+    //
+    //
+    // reverseOdd("Bananas") ➞ "sananaB"
+    //
+    // reverseOdd("One two three four") ➞ "enO owt eerht four"
+    //
+    // reverseOdd("Make sure uoy only esrever sdrow of ddo length")
+
+
+
+
+    // ~~~~~~6 - Hard Edabit~~~~~~~
+
+
+    // Mexican Wave Simulator
+    //     // Mexican Wave Simulator
+    //     //
+    //     // The wave (known as a Mexican wave in the English-speaking world outside North America) is an example of metachronal rhythm achieved in a packed stadium when successive groups of spectators briefly stand, yell, and raise their arms.
+    //     //
+    //     //     Create a function that takes a string and turns it into a Mexican Wave.
+    //     //
+    //     //     Examples
+    //     // wave("edabit") ➞ ["Edabit", "eDabit", "edAbit", "edaBit", "edabIt", "edabiT"]
+    //     //
+    //     // wave("just do it") ➞ ["Just do it", "jUst do it", "juSt do it", "jusT do it", "just Do it", "just dO it", "just do It", "just do iT"]
+    //     //
+    //     // wave(" ") ➞ []
+    //     // Notes
+    //     // All test cases will be lowercase strings.
+    //     //     Ignore spaces (they are considered empty seats).
+    //     // An empty string should return an empty array.
+
+    // function wave(str) {
+    //
+    // }
+
 })();
 
 

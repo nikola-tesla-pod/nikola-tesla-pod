@@ -165,7 +165,11 @@
         var broken = str2.split("");
         var keys = [];
         for (var i = 0; i < str1.length; i++) {
-            if (right[i] !== broken[i]) {
+            if ((right[i] !== broken[i]) && (!keys.includes(right[i]))) {
+                keys.push(right[i]);
+                console.log(right[i]);
+                /*
+                if(keys.includes())
                 for (var v = 1; v <= keys.length; v--) {
                      if (right[i] !== keys[v-1]) {
                         console.log(keys[v]);
@@ -173,6 +177,9 @@
                         keys.push(right[i]);
                     }
                 }
+
+                 */
+
             }
         }
         return keys;

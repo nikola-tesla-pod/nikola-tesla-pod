@@ -157,8 +157,6 @@
     //     Only one broken key per letter should be listed.
     //     Letters will all be in lower case.
 
-    var test = [0];
-    console.log(test.length);
 
     function findBrokenKeys(str1, str2) {
         var right = str1.split("");
@@ -167,7 +165,6 @@
         for (var i = 0; i < str1.length; i++) {
             if ((right[i] !== broken[i]) && (!keys.includes(right[i]))) {
                 keys.push(right[i]);
-                console.log(right[i]);
                 /*
                 if(keys.includes())
                 for (var v = 1; v <= keys.length; v--) {

@@ -1,3 +1,6 @@
+
+
+
 //edabit One:
 //ReverseAndNot
 // Write a function that takes an integer i and returns an integer with the integer backwards followed by the original integer.
@@ -12,6 +15,14 @@
 //
 // reverseAndNot(123456789) ➞ 987654321123456789
 
+
+
+
+
+
+
+
+
 function reverseAndNot(i) {
     var string = i.toString();
 
@@ -19,6 +30,7 @@ function reverseAndNot(i) {
 }
 
 // cool way to reverse integers without string manipulation:
+
 
 Reverse = function(number) {
     var reversed = 0;

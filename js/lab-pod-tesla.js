@@ -133,3 +133,99 @@ function sevenBoom(arr) {
     }
     return "there is no 7 in the array"
 }
+
+
+//////// WEEK 2!
+
+// Write a function that converts an object into an array, where each element represents a key-value pair.
+//
+//     Examples
+// toArray({ a: 1, b: 2 }) ➞ [["a", 1], ["b", 2]]
+//
+// toArray({ shrimp: 15, tots: 12 }) ➞ [["shrimp", 15], ["tots", 12]]
+//
+// toArray({}) ➞ []
+
+function toArray(obj) {
+    bucket = [];
+    for (var key in obj){
+        bucket.push([key, obj[key]]);
+    }
+    return bucket;
+}
+
+// additional answers on edabit:
+
+function toArray(obj) {
+    return Object.entries(obj);
+}
+
+
+////////////////////
+
+function toArray(obj) {
+    return Object.keys(obj).map(x => [x, obj[x]]);
+}
+
+////////////////////
+
+function toArray(obj) {
+    var a = [];
+    for(var i in obj){
+        a.push([i,obj[i]]);
+    }
+    return a;
+}
+
+////////////////////
+
+function toArray(obj) {
+    let stack = [];
+    for (let key in obj) {stack.push([key, obj[key]])}
+    return stack;
+}
+
+////////////////////Favorite answer!!!:
+
+function toArray(obj) {
+    let keys = Object.keys(obj);
+    let vals = Object.values(obj);
+    let answer = [];
+
+    for(let i = 0; i < keys.length; i++){
+        answer.push([keys[i], vals[i]]);
+    }
+
+}
+
+////////////////// Problem 2 (week 2):
+
+//Write a function that returns the least common multiple (LCM) of two integers.
+//
+// Examples
+// lcm(9, 18) ➞ 18
+//
+// lcm(8, 5) ➞ 40
+//
+// lcm(17, 11) ➞ 187
+// Notes
+// Both values will be positive.
+// The LCM is the smallest integer that divides both numbers such that the remainder is zero.
+
+function lcm(n1, n2) {
+    if ((typeof n1 !== 'number') || (typeof n2 !== 'number'))
+        return false;
+    return (!n1 || !n2) ? 0 : Math.abs((n1 * n2) / gcd(n1, n2));
+}
+
+function gcd(n1, n2) {
+    n1 = Math.abs(n1);
+    n2 = Math.abs(n2);
+    while(n2) {
+        var newNum = n2;
+        n2 = n1 % n2;
+        n1 = newNum;
+    }
+    return n1;
+}
+

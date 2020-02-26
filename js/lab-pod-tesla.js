@@ -135,8 +135,79 @@ function sevenBoom(arr) {
 }
 
 
-//////// WEEK 2!
+///////////////////////////////////////////////////////////////////////   WEEK 2!
+////////////////// Problem 1:
+//Calculate the Total Price of Groceries
+// Create a function that takes an array of objects (groceries) which calculates the total price and returns it as a number. A grocery object has a product, a quantity and a price, for example:
+//
+// {
+//   "product": "Milk",
+//   "quantity": 1,
+//   "price": 1.50
+// }
+// Examples
+// // 1 bottle of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 }
+// ]) ➞ 1.5
+//
+// // 1 bottle of milk & 1 box of cereals:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Cereals", quantity: 1, price: 2.50 }
+// ]) ➞ 4
+//
+// // 3 bottles of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 3, price: 1.50 }
+// ]) ➞ 4.5
+//
+// // Several groceries:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Eggs", quantity: 12, price: 0.10 },
+//   { product: "Bread", quantity: 2, price: 1.60 },
+//   { product: "Cheese", quantity: 1, price: 4.50 }
+// ]) ➞ 10.4
+//
+// // Some cheap candy:
+// getTotalPrice([
+//   { product: "Chocolate", quantity: 1, price: 0.10 },
+//   { product: "Lollipop", quantity: 1, price: 0.20 }
+// ]) ➞ 0.3
 
+function getTotalPrice(groceries) {
+    var counter = 0;
+
+    groceries.forEach(function (grocery){
+        if(grocery.price){
+            counter += grocery.price * grocery.quantity;
+        }
+    });
+    return parseFloat(counter.toFixed(1));
+}
+
+//////////////////More answers from edabit:
+
+function getTotalPrice(groceries) {
+    let total = 0;
+    for (let x of groceries){
+        total += x['quantity'] * x['price'];
+    }
+    return Number(total.toFixed(1));
+}
+
+//////////////////
+
+function getTotalPrice(groceries) {
+    let total = 0;
+    for (let grocery of groceries) {
+        total += grocery.quantity * grocery.price;
+    }
+    return Number(total.toFixed(1));
+}
+
+////////////////// Problem 2:
 // Write a function that converts an object into an array, where each element represents a key-value pair.
 //
 //     Examples
@@ -198,7 +269,7 @@ function toArray(obj) {
 
 }
 
-////////////////// Problem 2 (week 2):
+////////////////// Problem 3:
 
 //Write a function that returns the least common multiple (LCM) of two integers.
 //
@@ -229,3 +300,4 @@ function gcd(n1, n2) {
     return n1;
 }
 
+////////////////////

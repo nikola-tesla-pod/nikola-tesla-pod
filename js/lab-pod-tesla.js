@@ -133,3 +133,171 @@ function sevenBoom(arr) {
     }
     return "there is no 7 in the array"
 }
+
+
+///////////////////////////////////////////////////////////////////////   WEEK 2!
+////////////////// Problem 1:
+//Calculate the Total Price of Groceries
+// Create a function that takes an array of objects (groceries) which calculates the total price and returns it as a number. A grocery object has a product, a quantity and a price, for example:
+//
+// {
+//   "product": "Milk",
+//   "quantity": 1,
+//   "price": 1.50
+// }
+// Examples
+// // 1 bottle of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 }
+// ]) ➞ 1.5
+//
+// // 1 bottle of milk & 1 box of cereals:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Cereals", quantity: 1, price: 2.50 }
+// ]) ➞ 4
+//
+// // 3 bottles of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 3, price: 1.50 }
+// ]) ➞ 4.5
+//
+// // Several groceries:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Eggs", quantity: 12, price: 0.10 },
+//   { product: "Bread", quantity: 2, price: 1.60 },
+//   { product: "Cheese", quantity: 1, price: 4.50 }
+// ]) ➞ 10.4
+//
+// // Some cheap candy:
+// getTotalPrice([
+//   { product: "Chocolate", quantity: 1, price: 0.10 },
+//   { product: "Lollipop", quantity: 1, price: 0.20 }
+// ]) ➞ 0.3
+
+function getTotalPrice(groceries) {
+    var counter = 0;
+
+    groceries.forEach(function (grocery){
+        if(grocery.price){
+            counter += grocery.price * grocery.quantity;
+        }
+    });
+    return parseFloat(counter.toFixed(1));
+}
+
+//////////////////More answers from edabit:
+
+function getTotalPrice(groceries) {
+    let total = 0;
+    for (let x of groceries){
+        total += x['quantity'] * x['price'];
+    }
+    return Number(total.toFixed(1));
+}
+
+//////////////////
+
+function getTotalPrice(groceries) {
+    let total = 0;
+    for (let grocery of groceries) {
+        total += grocery.quantity * grocery.price;
+    }
+    return Number(total.toFixed(1));
+}
+
+////////////////// Problem 2:
+// Write a function that converts an object into an array, where each element represents a key-value pair.
+//
+//     Examples
+// toArray({ a: 1, b: 2 }) ➞ [["a", 1], ["b", 2]]
+//
+// toArray({ shrimp: 15, tots: 12 }) ➞ [["shrimp", 15], ["tots", 12]]
+//
+// toArray({}) ➞ []
+
+function toArray(obj) {
+    bucket = [];
+    for (var key in obj){
+        bucket.push([key, obj[key]]);
+    }
+    return bucket;
+}
+
+// additional answers on edabit:
+
+function toArray(obj) {
+    return Object.entries(obj);
+}
+
+
+////////////////////
+
+function toArray(obj) {
+    return Object.keys(obj).map(x => [x, obj[x]]);
+}
+
+////////////////////
+
+function toArray(obj) {
+    var a = [];
+    for(var i in obj){
+        a.push([i,obj[i]]);
+    }
+    return a;
+}
+
+////////////////////
+
+function toArray(obj) {
+    let stack = [];
+    for (let key in obj) {stack.push([key, obj[key]])}
+    return stack;
+}
+
+////////////////////Favorite answer!!!:
+
+function toArray(obj) {
+    let keys = Object.keys(obj);
+    let vals = Object.values(obj);
+    let answer = [];
+
+    for(let i = 0; i < keys.length; i++){
+        answer.push([keys[i], vals[i]]);
+    }
+
+}
+
+////////////////// Problem 3:
+
+//Write a function that returns the least common multiple (LCM) of two integers.
+//
+// Examples
+// lcm(9, 18) ➞ 18
+//
+// lcm(8, 5) ➞ 40
+//
+// lcm(17, 11) ➞ 187
+// Notes
+// Both values will be positive.
+// The LCM is the smallest integer that divides both numbers such that the remainder is zero.
+
+function lcm(n1, n2) {
+    if ((typeof n1 !== 'number') || (typeof n2 !== 'number'))
+        return false;
+    return (!n1 || !n2) ? 0 : Math.abs((n1 * n2) / gcd(n1, n2));
+}
+
+function gcd(n1, n2) {
+    n1 = Math.abs(n1);
+    n2 = Math.abs(n2);
+    while(n2) {
+        var newNum = n2;
+        n2 = n1 % n2;
+        n1 = newNum;
+    }
+    return n1;
+}
+
+////////////////////

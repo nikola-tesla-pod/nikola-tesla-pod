@@ -301,3 +301,78 @@ function gcd(n1, n2) {
 }
 
 ////////////////////
+
+///////////////////////////////////////////////////////////////////////   WEEK 3!
+/////////Problem 1: creating a function constructor within JS; constructor which will take a variable of fruit with 3 arguments and generate sentence with those arguments used to describe fruit
+
+function fruit(name,color,shape){
+    this.name = name;
+    this.color = color;
+    this.shape = shape;
+
+    this.describe = function(){
+        return 'A '+this.name+' is the color '+this.color+' and is the shape '+this.shape;
+    }
+}
+var melon = new fruit('melon','green','round');
+console.log(melon.describe());
+
+
+/////////Problem 2 (edabit):
+//Create the function that takes an array with objects and returns the sum of people's budgets.
+//
+// Examples
+// getBudgets([
+//   { name: "John", age: 21, budget: 23000 },
+//   { name: "Steve",  age: 32, budget: 40000 },
+//   { name: "Martin",  age: 16, budget: 2700 }
+// ]) ➞ 65700
+//
+// getBudgets([
+//   { name: "John",  age: 21, budget: 29000 },
+//   { name: "Steve",  age: 32, budget: 32000 },
+//   { name: "Martin",  age: 16, budget: 1600 }
+// ]) ➞ 62600
+
+function getBudgets(arr) {
+    return arr[0].budget + arr[1].budget + arr[2].budget;
+}
+
+//other answers
+const getBudgets = arr =>
+    arr.reduce((total, person) => total + person.budget, 0);
+
+//
+const getBudgets = arr => arr.reduce((a,v) => a + v.budget, 0);
+
+
+/////////Problem 3 (edabit):
+//Create a function that takes an array of strings and returns an array with only the strings that have numbers in them. If there are no strings containing numbers, return an empty array.
+//
+// Examples
+// numInStr(["1a", "a", "2b", "b"]) ➞ ["1a", "2b"]
+//
+// numInStr(["abc", "abc10"]) ➞ ["abc10"]
+//
+// numInStr(["abc", "ab10c", "a10bc", "bcd"]) ➞ ["ab10c", "a10bc"]
+//
+// numInStr(["this is a test", "test1"]) ➞ ["test1"]
+// Notes
+// The strings can contain white spaces or any type of characters.
+// Bonus: Try solving this without regex.
+
+function numInStr(arr) {
+    var bucket = [];
+    var numbers = [1,2,3,4,5,6,7,8,9,0];
+    for (var i = 0;i < arr.length; i++){
+
+        for (var j = 0; j < numbers.length; j++){
+            if (arr[i].indexOf(numbers[j]) !== -1){
+                bucket.push(arr[i]);
+                break;
+            }
+        }
+
+    }
+    return bucket;
+}

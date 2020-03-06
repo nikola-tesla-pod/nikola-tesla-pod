@@ -301,7 +301,6 @@ function gcd(n1, n2) {
 }
 
 
-
 ///////////////////////////////////////////////////////////////////////   WEEK 3!
 /////////Problem 1: creating a function constructor within JS; constructor which will take a variable of fruit with 3 arguments and generate sentence with those arguments used to describe fruit
 

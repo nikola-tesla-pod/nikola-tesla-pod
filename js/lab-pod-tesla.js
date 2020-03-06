@@ -376,3 +376,5 @@ function numInStr(arr) {
     }
     return bucket;
 }
+
+//ensuring proper merging to my branch

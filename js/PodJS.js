@@ -158,35 +158,35 @@
     //     Letters will all be in lower case.
 
 
-    function findBrokenKeys(str1, str2) {
-        var right = str1.split("");
-        var broken = str2.split("");
-        var keys = [];
-        for (var i = 0; i < str1.length; i++) {
-            if ((right[i] !== broken[i]) && (!keys.includes(right[i]))) {
-                keys.push(right[i]);
-                /*
-                if(keys.includes())
-                for (var v = 1; v <= keys.length; v--) {
-                     if (right[i] !== keys[v-1]) {
-                        console.log(keys[v]);
-                        console.log(right[i]);
-                        keys.push(right[i]);
-                    }
-                }
-
-                 */
-
-            }
-        }
-        return keys;
-    }
-
-    console.log(findBrokenKeys("happy birthday", "hawwy birthday"));
-
-    console.log(findBrokenKeys("starry night", "starrq light"));
-
-    console.log(findBrokenKeys("beethoven", "affthoif5"));
+    // function findBrokenKeys(str1, str2) {
+    //     var right = str1.split("");
+    //     var broken = str2.split("");
+    //     var keys = [];
+    //     for (var i = 0; i < str1.length; i++) {
+    //         if ((right[i] !== broken[i]) && (!keys.includes(right[i]))) {
+    //             keys.push(right[i]);
+    //             /*
+    //             if(keys.includes())
+    //             for (var v = 1; v <= keys.length; v--) {
+    //                  if (right[i] !== keys[v-1]) {
+    //                     console.log(keys[v]);
+    //                     console.log(right[i]);
+    //                     keys.push(right[i]);
+    //                 }
+    //             }
+    //
+    //              */
+    //
+    //         }
+    //     }
+    //     return keys;
+    // }
+    //
+    // console.log(findBrokenKeys("happy birthday", "hawwy birthday"));
+    //
+    // console.log(findBrokenKeys("starry night", "starrq light"));
+    //
+    // console.log(findBrokenKeys("beethoven", "affthoif5"));
 
 
 
@@ -412,112 +412,110 @@
     //     Frequency does not matter (e.g. if the first word is "loopy", then you can include words with any number of o's, so long as they only contain o's, and not any other vowels).
 
 
-    function sameVowelGroup(w){
-        if(w.length<1){
-            return [];
-        }
-        var vowels = ['a', 'e', 'i', 'o', 'u'];
-        var pushArray = [w[0]];
-        var containedVowels = [];
-        // find vowels in first word
-        for(var f = 0; f < pushArray[0].length; f++) {
-            for (var v = 0; v <= vowels.length; v++) {
-                if (pushArray[0].charAt(f) === vowels[v]) {
-                    containedVowels.push(vowels[v]);
-                }
-            }
-        }
-        //find vowels not in first word
-        var rejectedVowels = vowels;
-        for(var k = 0; k < rejectedVowels.length; k++) {
-            for (var z = 0; z < containedVowels.length; z++) {
-                if (rejectedVowels[k].includes(containedVowels[z]) === true) {
-                    rejectedVowels[k] = ""
-                }
-            }
-        }
-        w.forEach(function (chosen) {
-            for (var q = 0; q < chosen.length; q++) {
-                for (var p = 0; p < containedVowels.length; p++) {
-                    if ((chosen.charAt(q) === containedVowels[p]) && pushArray.includes(chosen) === false) {
-                        pushArray.push(chosen);
-                    }
-                }
-            }
-        });
-        var validWords=true;
-        var y=1;
-        while(y < pushArray.length) {
-            var final = pushArray[y];
-            validWords=true;
-
-            for (var u = 0; u < final.length; u++) {
-                for (var e = 0; e < rejectedVowels.length; e++) {
-
-                    if ((final.charAt(u) === rejectedVowels[e])&&validWords) {
-                        validWords=false;
-                        pushArray.splice(y, 1);
-
-                    }
-                }
-            }
-            if(validWords){
-                y=y+1;
-            }
-        }
-        return pushArray;
-    }
-
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    function sameVowelGroup_Complement(w) {
-        if((w===undefined)||(w.length<1)){
-            return [];
-        }
-        var vowels = ['a', 'e', 'i', 'o', 'u'];
-        var notVowels=vowels;
-        var firstWord=w.shift();
-        var validWords=[firstWord];
-
-        for(var currentVowel=0; currentVowel<vowels.length;currentVowel++){
-            if(firstWord.includes(vowels[currentVowel])){
-                notVowels.shift();
-            }
-        }
-
-        for(var currentWord=0;currentWord<w.length;currentWord++){
-            let targetWord=w[currentWord];
-            for(var currentVowel=0;currentVowel<targetWord.length;currentVowel++){
-                if(targetWord.includes(notVowels[currentVowel])){
-                    break;
-                }
-                if(currentVowel>=targetWord.length){
-                    validWords.push(w[currentWord]);
-                }
-            }
-        }
-
-        return validWords;
-    }
-
-    console.log(sameVowelGroup(["toe", "ocelot", "maniac"]));
-    // ["toe", "ocelot"]
-    //
-    console.log(sameVowelGroup(["many", "carriage", "emit", "apricot", "animal"]));
-    console.log(sameVowelGroup_Complement(["many", "carriage", "emit", "apricot", "animal"]));
-    // ["many"]
-    //
-    console.log(sameVowelGroup(["hoops", "chuff", "bot", "bottom"]));
-    // ["hoops", "bot", "bottom"]
-
-  console.log(sameVowelGroup(["alimony", "jumbawumba", "alouicious", "madeupwordioa", "alio", "ecstasy", "monia"]));
-  // ["alimony", "alio", "monia"]
-
-
-
-
-
-
+  //   function sameVowelGroup(w){
+  //       if(w.length<1){
+  //           return [];
+  //       }
+  //       var vowels = ['a', 'e', 'i', 'o', 'u'];
+  //       var pushArray = [w[0]];
+  //       var containedVowels = [];
+  //       // find vowels in first word
+  //       for(var f = 0; f < pushArray[0].length; f++) {
+  //           for (var v = 0; v <= vowels.length; v++) {
+  //               if (pushArray[0].charAt(f) === vowels[v]) {
+  //                   containedVowels.push(vowels[v]);
+  //               }
+  //           }
+  //       }
+  //       //find vowels not in first word
+  //       var rejectedVowels = vowels;
+  //       for(var k = 0; k < rejectedVowels.length; k++) {
+  //           for (var z = 0; z < containedVowels.length; z++) {
+  //               if (rejectedVowels[k].includes(containedVowels[z]) === true) {
+  //                   rejectedVowels[k] = ""
+  //               }
+  //           }
+  //       }
+  //       w.forEach(function (chosen) {
+  //           for (var q = 0; q < chosen.length; q++) {
+  //               for (var p = 0; p < containedVowels.length; p++) {
+  //                   if ((chosen.charAt(q) === containedVowels[p]) && pushArray.includes(chosen) === false) {
+  //                       pushArray.push(chosen);
+  //                   }
+  //               }
+  //           }
+  //       });
+  //       var validWords=true;
+  //       var y=1;
+  //       while(y < pushArray.length) {
+  //           console.log(y);
+  //           var final = pushArray[y];
+  //           console.log(final);
+  //           validWords=true;
+  //
+  //           for (var u = 0; u < final.length; u++) {
+  //               for (var e = 0; e < rejectedVowels.length; e++) {
+  //
+  //                   if ((final.charAt(u) === rejectedVowels[e])&&validWords) {
+  //                       validWords=false;
+  //                       pushArray.splice(y, 1);
+  //
+  //                   }
+  //               }
+  //           }
+  //           if(validWords){
+  //               y=y+1;
+  //           }
+  //       }
+  //       return pushArray;
+  //   }
+  //
+  //   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //
+  //   function sameVowelGroup_Complement(w) {
+  //       if((w===undefined)||(w.length<1)){
+  //           return [];
+  //       }
+  //       var vowels = ['a', 'e', 'i', 'o', 'u'];
+  //       var notVowels=vowels;
+  //       var firstWord=w.shift();
+  //       var validWords=[firstWord];
+  //
+  //       for(var currentVowel=0; currentVowel<vowels.length;currentVowel++){
+  //           if(firstWord.includes(vowels[currentVowel])){
+  //               notVowels.shift();
+  //           }
+  //       }
+  //
+  //       for(var currentWord=0;currentWord<w.length;currentWord++){
+  //           let targetWord=w[currentWord];
+  //           for(var currentVowel=0;currentVowel<targetWord.length;currentVowel++){
+  //               if(targetWord.includes(notVowels[currentVowel])){
+  //                   break;
+  //               }
+  //               if(currentVowel>=targetWord.length){
+  //                   validWords.push(w[currentWord]);
+  //               }
+  //           }
+  //       }
+  //
+  //       return validWords;
+  //   }
+  //
+  //   console.log(sameVowelGroup(["toe", "ocelot", "maniac"]));
+  //   // ["toe", "ocelot"]
+  //   //
+  //   console.log(sameVowelGroup(["many", "carriage", "emit", "apricot", "animal"]));
+  //   console.log(sameVowelGroup_Complement(["many", "carriage", "emit", "apricot", "animal"]));
+  //   // ["many"]
+  //   //
+  //   console.log(sameVowelGroup(["hoops", "chuff", "bot", "bottom"]));
+  //   // ["hoops", "bot", "bottom"]
+  //
+  // console.log(sameVowelGroup(["alimony", "jumbawumba", "alouicious", "madeupwordioa", "alio", "ecstasy", "monia"]));
+  // // ["alimony", "alio", "monia"]
+  //
+  //
 
 
 

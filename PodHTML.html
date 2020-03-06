@@ -1,10 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>This is my pod page</title>
 </head>
 <body>
 <script src="js/PodJS.js"></script>
+<script>
+    "use strict";
+
+
+    // ~~~~~~~~~~ 7 Very Hard Edabit Objects ~~~~~~~~~~~~~~~
+
+
+    // Encoded String Parse
+    // Create a function which takes in an encoded string and returns an object according to the following example:
+    //
+    // Notes
+    // The string will always be in the same format, first name, last name and id with zeros between them.
+    //     id numbers will not contain any zeros.
+    //     Bonus: Try solving this without RegEx.
+
+
+
+    // function parseCode(str) {
+    //     var final = [];
+    //     var test = [];
+    //     var object = {};
+    //     var code = str.split("0");
+    //     code.forEach(function(item, i){
+    //         var check = item.split("");
+    //         for(var v = 0; v<check.length; v++){
+    //             if(check[v] === 0){
+    //                 check.splice(v,1);
+    //             }
+    //         }
+    //         final.push(check.join(""));
+    //     });
+    //     final.forEach(function(item, i){
+    //         if(item !== ""){
+    //             test.push(item);
+    //         }
+    //     });
+    //    return object = {
+    //         firstName: test[0],
+    //         lastName: test[1],
+    //         id: test[2]
+    //     }
+    // }
+
+
+
+
+    //     Examples
+    // console.log(parseCode("John000Doe000123"));
+    //     firstName: "John",
+    //         lastName: "Doe",
+    //         id: "123"
+    // }
+    //
+    // parseCode("michael0smith004331");
+    //     firstName: "michael",
+    //         lastName: "smith",
+    //         id: "4331"
+    // }
+    //
+    // parseCode("Thomas00LEE0000043")
+    //     firstName: "Thomas",
+    //         lastName: "LEE",
+    //         id: "43"
+    // }
+// ~~~~~~~~~~~~~ 8 Hard Edabit ~~~~~~~~~
+//
+//
+//     Seven Boom!
+//         Create a function that takes an array of numbers and return "Boom!" if the number 7 appears in the array. Otherwise, return "there is no 7 in the array".
+
+
+
+//
+//     function sevenBoom(arr){
+//         var test = arr.join("");
+//         var lucky = 7;
+//         var returnedThing = "";
+//         for(var i = 0; i<test.length; i++){
+//             if(test.charAt(i) === lucky.toString()){
+//                 returnedThing = "Boom!";
+//                 break;
+//             } else {
+//                 returnedThing = "there is no 7 in the array"
+//             }
+//         }
+//         return returnedThing;
+//     }
+//
+//
+// //         Examples
+//     console.log(sevenBoom([1, 2, 3, 4, 5, 6, 7]));
+//     // "Boom!"
+//
+//     console.log(sevenBoom([8, 6, 33, 100]));
+//     // "there is no 7 in the array"
+//
+//     console.log(sevenBoom([2, 55, 60, 97, 86]));
+//     // "Boom!"
+
+
+    // ~~~~~~~~ 9 Hard Edabit ~~~~~~~~
+
+    // AlTeRnAtInG cApS
+    // Create a function that alternates the case of the letters in a string (known as Spongecase).
+    //
+    //
+    // Notes
+    // The first character should always be UPPERCASE.
+    //     Ignore spaces.
+    //
+
+    function alternatingCaps(str) {
+        var final = [];
+        var strLower=str.toLowerCase();
+        var strUpper=str.toUpperCase();
+        var lastUpper=false;
+        for(var letter=0;letter<str.length;letter++){
+            if(str[letter]===" "){
+                final.push(str[letter]);
+                continue;
+            }
+            else if(lastUpper){
+                final.push(strLower[letter]);
+                lastUpper=false;
+            }
+            else{
+                final.push(strUpper[letter]);
+                lastUpper=true;
+            }
+        }
+        return final.join("");
+    }
+
+
+    //     Examples
+    console.log(alternatingCaps("Hello"));
+    // ➞ "HeLlO"
+
+    console.log(alternatingCaps("How are you?"));
+    // ➞ "HoW aRe YoU?"
+
+    console.log(alternatingCaps("OMG this website is awesome!"));
+    // ➞ "OmG tHiS wEbSiTe Is AwEsOmE!"
+
+</script>
 </body>
 </html>

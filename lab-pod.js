@@ -220,4 +220,79 @@ function getStudentsWithNamesAndTopNotes(arr) {
 
 console.log(getStudentsWithNamesAndTopNotes(students));
 
+//return string if it contain numbers, tried not to use regex
+function numInStr(arr) {
+    var bucket = [];
+    arr.forEach((str) => {
+        if (str.match(/[1-9]/g)) {
+            bucket.push(str)
+
+        }
+    })
+    return bucket;
+}
+
+console.log(numInStr(['1ad','8475','yes45', 'hello']));
+
+function removeLastVowel(str){
+    var arr = str.toLowerCase().split(" ");
+    var empty = [];
+    for (var i = 0; i < arr.length; i++) {
+        empty.push(removeVowel(arr[i]));
+    }
+    return empty.join(" ");
+}
+
+console.log(removeLastVowel("Every day when your walking down the street, and everybody that you meet"));
+
+function removeVowel(word) {
+    var vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    for (var i = word.length - 1; i >= 0; i -= 1) {
+        if (vowel.indexOf(word[i]) >= 0) {
+            console.log(i);
+            var newWord = word.slice(0, i) + word.slice(i+1);
+            return newWord;
+        }
+    }
+    return word;
+}
+
+
+//robot tracker
+
+// function trackRobot(...steps) {
+//     var add = 0;
+//     var bucket = [];
+//     for (var i= 0; i < steps.length; i++ ){
+//         if(i = 0){
+//             steps[i] += add;
+//             console.log(add);
+//         }
+//
+//     }
+//     return bucket
+// }
+
+
+
+function trackRobot(...steps) {
+    var arr = [...steps]
+    var location = [0,0]
+    for(var i = 0; i < arr.length; i++){
+        if (i % 4 == 0){
+            location[1] = location[1] + arr[i]
+        }
+        else if (i % 4 == 1){
+            location[0] = location[0] + arr[i]
+        }
+        else if (i % 4 == 2){
+            location[1] = location[1] - arr[i]
+        }
+        else if (i % 4 == 3){
+            location[0] = location[0] - arr[i]
+        }
+    }
+    return location
+}
+console.log(trackRobot(20, 30, 10, 40));
 
